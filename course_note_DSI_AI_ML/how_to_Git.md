@@ -17,14 +17,14 @@ Linux server000 6.14.0-1-t2-noble
 ## 1. Setup Git Identity and Credential Manager
 
 ```bash
-$ git-credential-manager --version   # Check to ensure it is installed 
-$ git config --global user.name "<user name>"
-$ git config --global user.email "<user email>"
-$ git config --global core.editor "code --wait"
+git-credential-manager --version   # Check to ensure it is installed 
+git config --global user.name "<user name>"
+git config --global user.email "<user email>"
+git config --global core.editor "code --wait"
 # Set VS Code as the default editor for Git, so whenever Git needs you to write a commit message or edit a rebase, it will open VS Code instead of the default (like nano or vim).
-$ git config -l  # List the current Git config
-$ git credential-manager github list        # Show list of credential managers
-$ git credential-manager github login       # Login as credential manager
+git config -l  # List the current Git config
+git credential-manager github list        # Show list of credential managers
+git credential-manager github login       # Login as credential manager
 ```
 
 > 💡 **Note for Linux users:**  
@@ -45,19 +45,19 @@ $ git credential-manager github login       # Login as credential manager
 To fix this:
 
 ```bash
-$ git config --global credential.credentialStore secretservice
+git config --global credential.credentialStore secretservice
 ```
 
 To unset this setting:
 
 ```bash
-$ git config --global --unset credential.credentialStore
+git config --global --unset credential.credentialStore
 ```
 
 Recheck the config:
 
 ```bash
-$ git config -l
+git config -l
 user.name=<github.name>
 user.email=<github.login.email.com>
 core.editor=code --wait
@@ -68,7 +68,7 @@ credential.credentialstore=secretservice
 > Later, when I tried to run `git push` (after `git add` and `git commit`), I got another issue — a system window popped up asking for GitHub credentials:
 >
 > ```bash
-> $ git push -u origin main
+> git push -u origin main
 > error: unable to read askpass response from '/usr/bin/ksshaskpass'
 > Username for 'https://github.com': abcdef12345
 > remote: Invalid username or token. Password authentication is not supported for Git operations.
@@ -80,7 +80,7 @@ My guess is that this is a Git authentication issue with the KDE environment —
 To resolve:
 
 ```bash
-$ git config --global credential.helper manager
+git config --global credential.helper manager
 ```
 
 > This tells Git to use Git Credential Manager (GCM), a cross-platform tool maintained by Microsoft.  
@@ -101,18 +101,18 @@ $ git config --global credential.helper manager
 Below is an example of creating a local repo called `test_repo` and linking it to GitHub:
 
 ```bash
-$ mkdir test_repo
-$ cd test_repo
-$ git init -b main              # Initialize with main as the default branch
-$ touch test.txt; code test.txt # Create test.txt and open it in VS Code
-$ git status
-$ git add test.txt
-$ git status
-$ git log
-$ git commit
-$ git remote add origin https://github.com/yikai82/test_repo.git
-$ git status
-$ git remote -v
+mkdir test_repo
+cd test_repo
+git init -b main              # Initialize with main as the default branch
+touch test.txt; code test.txt # Create test.txt and open it in VS Code
+git status
+git add test.txt
+git status
+git log
+git commit
+git remote add origin https://github.com/yikai82/test_repo.git
+git status
+git remote -v
 ```
 
 ---
@@ -126,16 +126,16 @@ If you’ve made changes in a local working directory and want to pull updates f
 **3. Reapply local changes**
 
 ```bash
-$ cd ./path/to/your/work/directory
-$ git status                # Check current changes
-$ git remote -v             # View origin and upstream paths
-$ git stash                 # Save local changes
+cd ./path/to/your/work/directory
+git status                # Check current changes
+git remote -v             # View origin and upstream paths
+git stash                 # Save local changes
 # Check your current branch
-$ git switch main           # Switch to main branch if pushing to main
-$ git switch <branch-name>  # Switch to target branch, if not main
-$ git pull origin main      # Pull changes from GitHub
-$ git stash list            # View saved stashes
-$ git stash pop             # Reapply stashed changes
+git switch main           # Switch to main branch if pushing to main
+git switch <branch-name>  # Switch to target branch, if not main
+git pull origin main      # Pull changes from GitHub
+git stash list            # View saved stashes
+git stash pop             # Reapply stashed changes
 ```
 
 ---
@@ -148,8 +148,8 @@ $ git stash pop             # Reapply stashed changes
 - To clone your forked repo into a local folder:
 
 ```bash
-$ git clone <repository_url>               # Clone an existing repository
-$ git clone <repository_url> <new_dir>     # Clone and rename the directory
+git clone <repository_url>               # Clone an existing repository
+git clone <repository_url> <new_dir>     # Clone and rename the directory
 ```
 
 ---
@@ -157,18 +157,18 @@ $ git clone <repository_url> <new_dir>     # Clone and rename the directory
 ### ✅ Proper Way to Switch and Track a Remote Branch
 
 ```bash
-$ git fetch origin
-$ git switch [branch-name]
-$ git branch --set-upstream-to=origin/[branch-name]
-$ git push -u origin [branch-name]
+git fetch origin
+git switch [branch-name]
+git branch --set-upstream-to=origin/[branch-name]
+git push -u origin [branch-name]
 ```
 
 ### After Editing:
 
 ```bash
-$ git add [file-name]        # Stage changes
-$ git commit -m "message"    # Commit changes
-$ git push                   # Push to GitHub
+git add [file-name]             # Stage changes
+git commit -m "message"         # Commit changes
+git push origin <branch_name>   # Push to GitHub
 ```
 
 ---
