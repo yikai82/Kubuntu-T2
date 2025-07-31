@@ -137,10 +137,15 @@ $ git stash pop             # Apply stashed changes back
 ---
 ## 4 Fork a Git Repo from GitHUb and sync with a to Local folder
 
-- The method to fork a Git Repo is very straight folder and can be found here 
-https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#setting-up
+- The method to fork a Git Repo is very straight folder and can be found here: 
+[Link](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#setting-up)
 
-- How to clone it with a local folder there you can choose using VScode or terminal
+- How to clone it with a local folder, you can choose using VScode or terminal with
+
+```bash
+git clone <repository_url>               # Clone an existing repository
+git clone <repository_url> <new_dir>     # Clone and rename the directory
+```
 
 
 
@@ -159,3 +164,5 @@ $ git add [file-name]       # Stage changes
 $ git commit -m "message"   # Commit changes
 $ git push                  # Push to GitHub
 ```
+### Other Reference:
+1. [U of T DSI github cheatsheet](https://github.com/UofT-DSI/git/blob/main/01_materials/git_cheatsheet.md) 
