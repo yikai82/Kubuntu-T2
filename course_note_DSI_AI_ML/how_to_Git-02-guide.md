@@ -1,6 +1,6 @@
 # Module 2 – Let's Git 🤓 Part 2 
 
-### This cover the exercice on the day 2 and day 3 after setup 
+### This covers the exercise on the day 2 and day 3 after setup 
 Tips: use 'git status', 'git log', 'git remote -v', 'git branch -v' to check the status often
 
 ## 1. Create a Local Git Repo and Link It to GitHub (Day 2)
@@ -31,15 +31,15 @@ This is very staight forward, to fork a Git repo, just follow this guide:
 To clone your forked repo into a local folder:
 
 ```bash
-git clone <repository_url>               # Clone an existing repository
-git clone <repository_url> <new_dir>     # Clone and rename the directory
+git clone [repository_url]               # Clone an existing repository
+git clone [repository_url] [new_dir]     # Clone and rename the directory
 ```
 
 ---
 
 ## 3. Restore a document from other GitHub Repo (Day 3)
 ### Background
-Someone accidentally delete the avocado from the gaucamole receipe, let's fix it. 
+Someone accidentally delete the avocado from the guacamole recipe, let's fix it. 
 Tips: use git status, git remote -v, ls, pwd to 
 
 Follow the command below to create a situation:  
@@ -49,7 +49,7 @@ cd ~/path/to/work/directory # your work directory
 git clone https://github.com/dtxe/dsi_guacamole.git # this will create a folder named 'git_gaucamole' under your working directory
 cd ./dsi_guacamole.git
 git status
-git log # you will see two log and one of them have a comment "Accidentally delete avocados"
+git log # you will see two logs and one of them have a comment "Accidentally delete avocados"
 ls # list the file
 code guacamole.md 
 
@@ -62,10 +62,10 @@ git switch -c fix-avocados e4912279bfddcc05c9c91924cd40efcf04f2f1c3   # create a
 git status
 
 ## Fork the dsi_guacamole to your own Git Repo
-git remove -v 
+git remote -v 
 git remote rename origin upstream # rename origin to upstream 
 git remote add origin https://github.com/yikai82/dsi_guacamole.git  # add new origin 
-git remove -v
+git remote -v
 ```
 
 The terminal should have the correct output as below. You will have upstream (point the dtxe) and origin (on your own github):
@@ -79,7 +79,7 @@ upstream        https://github.com/dtxe/dsi_guacamole.git (push)
 Now push the origin to fix-avocados 
 ```bash
 git push -u origin fix-avocados
-git push origin main # if your forked already, you will have a origin main that you can push if needed
+git push origin main # if your've forked already, you will have a origin main that you can push if needed
 ```
 
 Open code to edit the guacamole.md to remove `spicy jalapeno pepper or whatever you want to edit`:
@@ -95,14 +95,14 @@ git push fix-avocados
 ## 4. Merge/Pull other document from Git Repo (DAy 3)
 ### Background 
 
-This is an example from the day 3 git course when a document needs to be pulled/merged from difference source (big batch), and how to troubleshoot. Just follow the command in the previous section to setup upstream.  Follow the command below to create a situation. This  
+This is an example from the day 3 git course when a document needs to be pulled/merged from different source (big batch), and how to troubleshoot. Just follow the command in the previous section to setup upstream.  Follow the command below to create a situation. This  
 
 ```bash
 git pull upstream big-batch # since upstream is setup properly, you can pull the branch 'big batch' directly
 
 ```
 
-You will see a warming message from terminal if you are on mac/linux: 
+You will see a warning message from terminal if you are on mac/linux: 
 
 ```bash
 From https://github.com/dtxe/dsi_guacamole
@@ -123,13 +123,18 @@ fatal: Need to specify how to reconcile divergent branches.
 ```
 
 Run the following command to merge the conflict document and push:
+
 ```bash
+# I am no sure which one I was using...' '
+git pull --no-rebase upsteram main     
+git pull --no-rebase
+
 git status # should indicate there is a conflict 
 code guacamole.md  
 ## You will see your change in the <<<<< HEAD 
-## You will see an older change in >>>>>>
-## Click the 'compare changes' just on the top of code to see the change
-## Accept the change and manual edit what you were planning to do in the 
+## You will see an older change in >>>>>> commit id 
+## Click the 'Compare Changes' just on the top of code to see the change
+## Accept the change and manually edit what you were planning to do in the 
 ## previous (i.e., remove spicy)  
 git add guacamole.md
 git commit 
@@ -145,29 +150,22 @@ The instructor was simulating a chaos situation where multiple people working on
 ## clone the cohort7 playground
 git clone https://github.com/simeon-demo/cohort7_playground.git
 cd cohort7_playground
-## waiting for the invitation as collaborator while you can edit the file you like
 
+## waiting for the invitation as collaborator while you can edit the file you like
 ls 
 git status; git remove -v
 git switch -c [branch.name]
 code README.md  # just open and edit whatever you like
 git add README.md; git commit
 
-## once you have accept the invitaion as colloborator, you can start push the change
+## once you have accepted the invitaion as collaborator, you can start push the change
 git push # This will push the local branch along with the edit to the github 
-
-git push README.md upstream main # it might no longer work as we lock the branch
+git push README.md upstream main # it might no longer work as if the branch was locked
 git pull --no-rebase # to solve any conflict if there is any 
 git branch -vv
  
 ```
-### I totally lost here so.... feel free to add 
-
-
-
-
-
-
+### I totally lost here so...
 
 
 ---
