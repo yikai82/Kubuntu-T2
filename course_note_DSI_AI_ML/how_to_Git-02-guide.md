@@ -92,7 +92,7 @@ git push fix-avocados
 
 ---
 
-## 4. Merge/Pull other document from Git Repo (DAy 3)
+## 4. Merge/Pull other document from Git Repo (Day 3)
 ### Background 
 
 This is an example from the day 3 git course when a document needs to be pulled/merged from different source (big batch), and how to troubleshoot. Just follow the command in the previous section to setup upstream.  Follow the command below to create a situation. This  
